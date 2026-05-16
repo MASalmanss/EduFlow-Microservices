@@ -1,12 +1,11 @@
-using CatalogService.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
+using CatalogService.Infrastructure.Extensions;
+using EduFlow.Shared.Extensions;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<CatalogDbContext>(options =>
-    options.UseMongoDB(
-        builder.Configuration.GetConnectionString("MongoDB")!,
-        "CatalogDb"));
+builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddSharedServices(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
 
