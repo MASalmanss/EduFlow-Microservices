@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using CatalogService.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -17,6 +18,13 @@ public static class InfrastructureServiceExtensions
         {
             var settings = serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value;
             options.UseMongoDB(settings.ConnectionString, settings.DatabaseName);
+        });
+
+        services.AddApiVersioning(options =>
+        {
+            options.DefaultApiVersion = new ApiVersion(1);
+            options.ReportApiVersions = true;
+            options.AssumeDefaultVersionWhenUnspecified = true;
         });
 
         services.AddEndpoints(Assembly.GetExecutingAssembly());

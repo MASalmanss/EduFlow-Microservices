@@ -7,7 +7,7 @@ public class DeleteCourseEndpoint : IEndpoint
 {
     public void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapDelete("/api/courses/{id}", async (string id, ISender sender) =>
+        app.MapDelete("/courses/{id}", async (string id, ISender sender) =>
         {
             var result = await sender.Send(new DeleteCourseCommand(id));
             return result.ToHttpResult();

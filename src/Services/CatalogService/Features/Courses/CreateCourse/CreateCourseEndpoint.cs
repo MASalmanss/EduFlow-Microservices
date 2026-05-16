@@ -7,7 +7,7 @@ public class CreateCourseEndpoint : IEndpoint
 {
     public void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapPost("/api/courses", async (
+        app.MapPost("/courses", async (
             CreateCourseCommand command,
             ISender sender) =>
         {

@@ -7,7 +7,7 @@ public class CreateCategoryEndpoint : IEndpoint
 {
     public void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapPost("/api/categories", async (
+        app.MapPost("/categories", async (
             CreateCategoryCommand command,
             ISender sender) =>
         {

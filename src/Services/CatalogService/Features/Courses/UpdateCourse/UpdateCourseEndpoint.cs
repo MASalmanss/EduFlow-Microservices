@@ -7,7 +7,7 @@ public class UpdateCourseEndpoint : IEndpoint
 {
     public void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapPut("/api/courses/{id}", async (
+        app.MapPut("/courses/{id}", async (
             string id,
             UpdateCourseCommand command,
             ISender sender) =>
