@@ -8,8 +8,8 @@ public class CatalogDbContext : DbContext
 {
     public CatalogDbContext(DbContextOptions<CatalogDbContext> options) : base(options) { }
 
-    public DbSet<Category> Categories => Set<Category>();
-    public DbSet<Course> Courses => Set<Course>();
+    public virtual DbSet<Category> Categories => Set<Category>();
+    public virtual DbSet<Course> Courses => Set<Course>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
