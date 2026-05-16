@@ -1,6 +1,7 @@
 using CatalogService.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using System.Reflection;
 
 namespace CatalogService.Infrastructure.Extensions;
 
@@ -17,6 +18,8 @@ public static class InfrastructureServiceExtensions
             var settings = serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value;
             options.UseMongoDB(settings.ConnectionString, settings.DatabaseName);
         });
+
+        services.AddEndpoints(Assembly.GetExecutingAssembly());
 
         return services;
     }

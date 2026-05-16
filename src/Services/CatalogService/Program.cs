@@ -9,4 +9,6 @@ builder.Services.AddSharedServices(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
 
+app.MapEndpoints();
+
 app.Run();
