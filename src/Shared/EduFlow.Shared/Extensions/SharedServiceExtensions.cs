@@ -1,4 +1,5 @@
 using EduFlow.Shared.Behaviors;
+using EduFlow.Shared.Services;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +20,9 @@ public static class SharedServiceExtensions
         services.AddTransient(
             typeof(IPipelineBehavior<,>),
             typeof(ValidationBehavior<,>));
+
+        services.AddHttpContextAccessor();
+        services.AddScoped<IIdentityService, IdentityService>();
 
         return services;
     }
